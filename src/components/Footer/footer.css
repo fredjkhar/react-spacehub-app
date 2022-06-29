@@ -1,0 +1,14 @@
+.container-empty {
+    background-color: black;
+    text-align: center;
+    height: 100px;
+    margin: 0;
+
+}
+
+#copyright {
+    background-color: black;
+    text-align: center;
+    color: white;
+    margin-bottom: 0 !important;
+}

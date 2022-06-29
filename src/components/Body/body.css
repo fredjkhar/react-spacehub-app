@@ -1,0 +1,86 @@
+
+#body {
+    padding-left: 10%;
+    padding-right: 10%;
+    background: url('../assets/bckgnd.jpg') no-repeat;
+    background-size: cover;
+
+}
+.row {
+    padding-top: 5vh;
+    background-color: white;
+    margin-left: 20px;
+}
+.topic-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.topic-text {
+    display: flex;
+    justify-content: start;
+
+}
+.img {
+    width: 600px;
+    padding-top: 5px;
+    padding-bottom: 4rem;
+}
+
+.text {
+    padding-top: 0;
+    font-size: 1.2rem;
+    padding-right: 1rem;
+    padding-bottom: 4rem;
+}
+
+#body h3 {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#body h4 {
+    padding-top: 2rem;
+    font-size: 2em;
+}
+
+.moreArticles {
+    border: 1px solid black;
+    width: 100px;
+}
+
+#moreArticles {
+    text-decoration: none;
+    text-align: end;
+    padding-right: 2rem;
+    font-size: 1.5rem;
+    color: black;
+    font-size: 2em;
+}
+
+.buttonBody {
+    height: 50px;
+    font-size: 1.5em;
+    background-color: black;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.buttonBody:hover {
+    box-shadow: 0 1px 5px 1px rgb(204, 204, 204);
+}
+
+.gallery-img-left {
+    display: flex;
+    justify-content: end;
+}
+
+.gallery-img-right {
+    display: flex;
+    justify-content: start;
+}
+
+
