@@ -1,0 +1,42 @@
+.article-section {
+    padding-left: 10%;
+    padding-right: 10%;
+    background: url('../../components/assets/bckgnd.jpg') no-repeat;
+    background-size: cover;
+    padding-top: 4rem;
+}
+
+.one-article {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;
+    background-color: white;
+}
+
+.one-article > img {
+    align-items: center;
+}
+.article-title {
+    padding: 1rem 2rem;
+    padding-top: 0;
+}
+
+.article-subtitle {
+    padding: 1rem 2rem;
+    font-size: 1.6em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.article-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.article-text {
+    padding: 1rem 2rem;
+    font-size: 1.3em;
+}

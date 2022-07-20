@@ -1,0 +1,7 @@
+.images {
+    padding-top: 4rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    background: url('../../components/assets/bckgnd.jpg') no-repeat;
+    background-size: cover;
+}

@@ -9,71 +9,67 @@ import img5 from '../assets/img5.jpg';
 import img6 from '../assets/img6.jpg';
 import img7 from '../assets/img7.jpg';
 
-const Body = () => {
+import { useTranslation } from "react-i18next";
+
+import { Link } from 'react-router-dom';
+
+const Body = ({changeLanguage}) => {
+  const { t } = useTranslation();
+
   return (
     <div id='body'> 
       <div className='row'>
-        <h3 id='latestArticles'>Latest Articles</h3>
-        <h4>Fastest-growing black hole ever seen is devouring the equivalent of 1 Earth per second</h4>
-        <div className='topic-img col-xs-12 col-lg-6'>    
-           <img className='img' src={img2}/>
+        <h3 id='latestArticles'>{t('latest_articles')}</h3>
+        <h4>{t('article_1_title')}</h4>
+        <div className='topic-img col-xs-12 col-lg-6' style={{marginBottom: '1rem'}}>    
+           <img className='img-fluid' src={img2}/>
         </div>
-        <div className='topic-text col-xs-12 col-lg-6'>
-            <div className='text'>
-            A black hole is a place in space where gravity pulls so much that even light can not get out. 
-            The gravity is so strong because matter has been squeezed into a tiny space. This can happen when a star 
-            is dying. Because no light can get out, people can't see black holes. They are invisible. Space telescopes 
-            with special tools can help find black holes. The special tools can see how stars that are very close 
-            to black holes act differently Black holes can be big or small. Scientists think the smallest black holes are 
-            as small as just one atom.&nbsp;
-            <a href='#'>read more</a>
+        <div className='topic-text col-xs-12 col-lg-6' >
+            <div className='text' style={{fontSize: '1.3rem'}}>
+            {t('article_1_text_1')}&nbsp;
+            <a href='#'>{t('read_more')}</a>
             </div>
         </div>
         <hr/>
-        <h4>Marvel at the majestic galaxies in this classic Hubble telescope photo</h4>
-        <div className='topic-img col-xs-12 col-lg-6'>
-                <img className='img' src={img3}/>
+        <h4>{t('article_2_title')}</h4>
+        <div className='topic-img col-xs-12 col-lg-6' style={{marginBottom: '1rem'}}>
+                <img className='img-fluid' src={img3}/>
         </div>
         <div className='topic-text col-xs-12 col-lg-6'>
-            <div className='text'>
-            For over three decades, the indefatigable Hubble Space Telescope has been providing stunning peeks into the 
-            myriad mysteries of the universe, helping astronomers, physicists, and scientists of all stripes to understand 
-            more about galaxies, exoplanets, moons and stars than ever before. Check out this classic galactic tableau 
-            originally captured by the Hubble telescope in 2012 (NASA recently released it this month) to point out how 
-            optical tricksof perspective can alter our conclusions about what appears to be the truth.&nbsp;
-            <a href='#'>read more</a>
+            <div className='text' style={{fontSize: '1.3rem'}}>
+            {t('article_2_text_1')}&nbsp;
+            <a href='#'>{t('read_more')}</a>
             </div>
         </div>
         <hr/>
-        <h4>Gaia mission: 5 revealing insights from its latest data</h4>
-        <div className='topic-img col-xs-12 col-lg-6'>
-                <img className='img' src={img4}/>
+        <h4>{t('article_3_title')}</h4>
+        <div className='topic-img col-xs-12 col-lg-6' style={{marginBottom: '1rem'}}>
+                <img className='img-fluid' src={img4}/>
         </div>
         <div className='topic-text col-xs-12 col-lg-6'>
-            <div className='text'>
-            The European Space Agency's (ESA) Gaia mission has just released new data. The Gaia satellite was launched in 
-            2013, with the aim of measuring the precise positions of a billion stars. In addition to measuring the stars' 
-            positions, speeds and brightness, the satellite has collected data on a huge range of other objects. There's a 
-            lot to make astronomers excited(opens in new tab). Here are five of our favorite insights that the data might 
-            provide.&nbsp;
-            <a href='#'>read more</a>
+            <div className='text' style={{fontSize: '1.3rem'}}>
+            {t('article_3_text_1')}&nbsp;
+            <a href='#'>{t('read_more')}</a>
             </div>
         </div>
-        <button type="button" class="buttonBody">More Articles</button>
-        <h3 id='latestArticles'>Space Gallery</h3>
+        <hr/>
+        <button type="button" className="buttonBody" style={{marginTop: '1rem'}}><Link className='bodyLink' to='/articles'>{t('more_articles')}</Link></button>
+        <h3 id='latestArticles' style={{marginBottom: '2rem'}}>{t('space_gallery')}</h3>
         <div className='gallery-img-left col-xs-12 col-md-6'>
-        <img className='img' src={img5}/>
+        <img className='img-fluid' style={{marginBottom: '1rem'}} src={img5}/>
         </div>
         <div className='gallery-img-right col-xs-12 col-md-6'>
-        <img className='img' src={img6}/>
+        <img className='img-fluid' style={{marginBottom: '1rem'}} src={img6}/>
         </div>
+        <hr/>
         <div className='gallery-img-left col-xs-12 col-md-6'>
-        <img className='img' src={img7}/>
+        <img className='img-fluid' style={{marginBottom: '1rem'}} src={img7}/>
         </div>
         <div className='gallery-img-right col-xs-12 col-md-6'>
-        <img className='img' src={img1}/>
+        <img className='img-fluid' style={{marginBottom: '1rem'}} src={img1}/>
         </div>
-        <button type="button" className="buttonBody">More Photos</button>
+        <hr/>
+        <button type="button" className="buttonBody"><Link className='bodyLink' to='/galleries'>{t('more_images')}</Link></button>
       </div>
     </div>
   )

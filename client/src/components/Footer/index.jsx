@@ -1,7 +1,12 @@
 import React from 'react'
 import './footer.css'
 
-const Footer = () => {
+import { useTranslation } from "react-i18next";
+
+const Footer = ({changeLanguage}) => {
+
+  const { t } = useTranslation();
+
   return (
     <>
       <div className='container-empty'/>

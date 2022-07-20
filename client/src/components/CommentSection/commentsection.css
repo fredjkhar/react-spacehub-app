@@ -1,0 +1,9 @@
+#user {
+    padding-left: 2rem;
+    font-weight: bold;
+}
+
+#comment {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+}
