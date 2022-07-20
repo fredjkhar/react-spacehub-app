@@ -6,11 +6,16 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Articles from './pages/Articles'
 import Galleries from './pages/Galleries'
-import userEvent from '@testing-library/user-event';
+import OneArticle from './pages/OneArticle'
+import { AuthContextProvider } from './contexts/AuthContext';
+import i18next from 'i18next'
+
 
 
 const App = () => {
   const [user, setUser] = useState(null);
+
+  const [article, setArticles] = useState(1);
 
   useEffect(() => {
     const getUser = () => {
@@ -37,26 +42,38 @@ const App = () => {
     getUser();
   }, []);
 
+  const [lang, setlang] = useState('fr');
+
+  const changeLanguage = () => {
+    i18next.changeLanguage(lang);
+    lang === 'fr' ? setlang('en') : setlang('fr');
+  }; 
+
   return (
-    <Router>
+    <AuthContextProvider>
+      <Router>
       <Switch>
         <Route exact path="/">
-            <Home user = {user}/>
+            <Home user = {user} changeLanguage = { changeLanguage }/>
         </Route>
         <Route exact path="/signIn">
-            <SignIn user = {user}/>
+            <SignIn setUser = {setUser} changeLanguage = { changeLanguage }/>
         </Route>
         <Route exact path="/signUp">
-            <SignUp/>
+            <SignUp setUser = {setUser} changeLanguage = { changeLanguage }/>
         </Route>
         <Route exact path="/articles">
-            <Articles/>
+            <Articles user = {user} changeLanguage = { changeLanguage } setArticles = { setArticles }/>
         </Route>
         <Route exact path="/galleries">
-            <Galleries/>
+            <Galleries user = {user} changeLanguage = { changeLanguage }/>
+        </Route>
+        <Route exact path="/article">
+            <OneArticle user = {user} changeLanguage = { changeLanguage } article = {article}/>
         </Route>
       </Switch>
     </Router>
+    </AuthContextProvider>
   )
 }
 

@@ -4,12 +4,12 @@ import Header from '../../components/Header'
 import Body from '../../components/Body'
 import Footer from '../../components/Footer'
 
-const Home = ({user}) => {
+const Home = ({user, changeLanguage}) => {
   return (
     <>
-      <Header user = {user}/>
-      <Body/>
-      <Footer/>
+      <Header user = {user} changeLanguage = {changeLanguage}/>
+      <Body changeLanguage = {changeLanguage}/>
+      <Footer changeLanguage = {changeLanguage}/>
     </>
   )
 }

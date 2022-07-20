@@ -3,12 +3,34 @@ import './navbar.css';
 
 import { Navbar } from 'react-bootstrap';
 import Video from '../assets/header_vid.mp4';
-import Profile from '../assets/user.png';
+import { useTranslation } from "react-i18next";
+import Dropdown from 'react-bootstrap/Dropdown';
+
+import { UserAuth } from '../../contexts/AuthContext';
+
 
 import { Link } from 'react-router-dom';
 
 
-const Header = ({user}) => {
+
+const Header = ({user, changeLanguage}) => {
+  
+  const { t } = useTranslation();
+
+  const { signout } = UserAuth();
+
+  const logout = () => {
+    window.open("http://localhost:5000/auth/logout", "_self");
+    try {
+      signout();
+    } catch (e) {
+      console.log(e.message)
+    }
+    
+  };
+
+  
+
   return (
     <div className='header'>
       <video autoPlay loop className='video'>
@@ -21,10 +43,21 @@ const Header = ({user}) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <ul className='navbar-links'>
-                    <li><Link to='/articles'>Articles</Link></li>
-                    <li><Link to='galleries'>Galleries</Link></li>
-                    <li><Link to='galleries'>{user.displayName}</Link></li>
-                    <li><img src={Profile} style={{width: '30px'}}/></li>
+                    <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
+                    <li><Link to='/articles'>{t('articles')}</Link></li>
+                    <li><Link to='galleries'>{t('galleries')}</Link></li>
+                    <li>
+                      <Dropdown>
+                        <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                          {user.displayName}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                          <Dropdown.Item href="" style={{color: 'black'}} onClick= {logout}>Logout</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </li>
+                    <li><Link to=''> <img src={user.photos[0].value} style={{width: '30px'}}/></Link></li>
                   </ul>
                 </Navbar.Collapse>
               </div>
@@ -36,11 +69,12 @@ const Header = ({user}) => {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <ul className='navbar-links'>
-                  <li><Link to='/articles'>Articles</Link></li>
-                  <li><Link to='galleries'>Galleries</Link></li>
-                  <li><Link to='/signin'>Sign in</Link></li>
+                  <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
+                  <li><Link to='/articles'>{t('articles')}</Link></li>
+                  <li><Link to='galleries'>{t('galleries')}</Link></li>
+                  <li><Link to='/signin'>{t('sign_in')}</Link></li>
                   <li>/</li>
-                  <li><Link to='signup'>Sign up</Link></li>
+                  <li><Link to='signup'>{t('sign_up')}</Link></li>
                 </ul>
               </Navbar.Collapse>
             </div>
@@ -48,8 +82,8 @@ const Header = ({user}) => {
       )}
 
       <div className='subHeader'>
-        <h2>A space for those who look up to the stars and dream</h2>
-        <a id='read-more' href='#body'>Read more</a>
+        <h2>{t('subHeader')}</h2>
+        <a id='read-more' href='#body'>{t('read_more')}</a>
       </div>
       
     </div> 

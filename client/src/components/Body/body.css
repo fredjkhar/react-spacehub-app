@@ -83,4 +83,13 @@
     justify-content: start;
 }
 
+.bodyLink {
+    text-decoration: none;
+    color: white;
+}
+
+.bodyLink:hover {
+    color: white;
+}
+
 
