@@ -16,6 +16,8 @@ import { useTranslation } from "react-i18next";
 
 import { UserAuth } from '../../contexts/AuthContext';
 
+import img from '../../components/assets/user.png'
+
 const SignIn = ({setUser, changeLanguage}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -31,7 +33,8 @@ const SignIn = ({setUser, changeLanguage}) => {
     try {
       await signin(email, password)
       const user = {
-        photos: [{value: '../../components/assets/user.png'}]
+        email: email,
+        photos: [{value: img}]
       }
       setUser(user);
       history.push("/")
@@ -65,15 +68,16 @@ const SignIn = ({setUser, changeLanguage}) => {
               <li><Link to='/'>{t('home')}</Link></li>
               <li><Link to='/articles'>{t('articles')}</Link></li>
               <li><Link to='galleries'>{t('galleries')}</Link></li>
-              <li>/</li>
+              <li><Link to='/faq'>FAQ</Link></li>
               <li><Link to='signup'>{t('sign_up')}</Link></li>
             </ul>
           </Navbar.Collapse>
         </div>
       </Navbar>
-      <div className="login container-fluid">
+      <div className="login container-fluid ">
         <div className="wrapper">
           <div className="left">
+            <div><h3 style={{textAlign: 'center'}}>{t('sign_in')}</h3></div>
             <div className="loginButton gmail" onClick={google}>
               <img id='' src={Gmail} style={{width: '40px', height: '40px'}}></img>
               Gmail

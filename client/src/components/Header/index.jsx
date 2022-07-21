@@ -9,6 +9,8 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { UserAuth } from '../../contexts/AuthContext';
 
 
+
+
 import { Link } from 'react-router-dom';
 
 
@@ -40,20 +42,21 @@ const Header = ({user, changeLanguage}) => {
             <Navbar className='navbar' expand="lg">
               <div className='container-fluid'>
                 <Navbar.Brand href="/"><h1>SpaceHub</h1></Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav" style={{backgroundColor: 'white'}}/>
                 <Navbar.Collapse id="basic-navbar-nav">
                   <ul className='navbar-links'>
                     <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
                     <li><Link to='/articles'>{t('articles')}</Link></li>
                     <li><Link to='galleries'>{t('galleries')}</Link></li>
+                    <li><Link to='/faq'>FAQ</Link></li>
                     <li>
                       <Dropdown>
                         <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                          {user.displayName}
+                          {user.displayName || user.email}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                          <Dropdown.Item href="" style={{color: 'black'}} onClick= {logout}>Logout</Dropdown.Item>
+                          <Dropdown.Item href="" style={{color: 'black'}} onClick= {logout}>{t('sign_out')}</Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -72,8 +75,9 @@ const Header = ({user, changeLanguage}) => {
                   <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
                   <li><Link to='/articles'>{t('articles')}</Link></li>
                   <li><Link to='galleries'>{t('galleries')}</Link></li>
+                  <li><Link to='/faq'>FAQ</Link></li>
                   <li><Link to='/signin'>{t('sign_in')}</Link></li>
-                  <li>/</li>
+                  <li style={{color: 'white'}}>/</li>
                   <li><Link to='signup'>{t('sign_up')}</Link></li>
                 </ul>
               </Navbar.Collapse>

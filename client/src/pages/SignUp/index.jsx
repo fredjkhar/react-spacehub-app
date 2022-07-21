@@ -13,6 +13,8 @@ import Footer from '../../components/Footer';
 import Gmail from '../../components/assets/gmail.png';
 import GitHub from '../../components/assets/github.png';
 
+import img from '../../components/assets/user.png'
+
 import { useTranslation } from "react-i18next";
 
 
@@ -31,10 +33,11 @@ const SignUp = ({setUser, changeLanguage}) => {
     e.preventDefault();
     setError('');
     try {
-      await signup(email, password, name);
+      await signup(email, password);
       const user = {
+        email: email,
         displayName: name,
-        photos: [{value: '../../components/assets/user.png'}]
+        photos: [{value: img}]
       }
       setUser(user);
       history.push("/")
@@ -71,7 +74,7 @@ const SignUp = ({setUser, changeLanguage}) => {
               
               <li><Link to='/articles'>{t('articles')}</Link></li>
               <li><Link to='galleries'>{t('galleries')}</Link></li>
-              <li>/</li>
+              <li><Link to='/faq'>FAQ</Link></li>
               <li><Link to='signin'>{t('sign_in')}</Link></li>
             </ul>
           </Navbar.Collapse>
@@ -80,6 +83,7 @@ const SignUp = ({setUser, changeLanguage}) => {
       <div className="login container-fluid">
         <div className="wrapper">
           <div className="left">
+          <div><h3 style={{textAlign: 'center'}}>{t('sign_up')}</h3></div>
             <div className="loginButton gmail" onClick={google}>
               <img id='' src={Gmail} style={{width: '40px', height: '40px'}}></img>
               Gmail
