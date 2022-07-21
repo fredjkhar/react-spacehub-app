@@ -6,6 +6,6 @@
 
 ### Etape 2: dans le dossier ```backend``` ouvrir git ou votre CLI prefere, et taper les commandes suivantes: ```npm i``` puis ```npm start```
 
-### Etape 2: Naviguer au dossier ```client``` ouvrir git ou votre CLI prefere, et taper les commandes suivantes: ```npm i``` puis ```npm start```
+### Etape 3: Naviguer au dossier ```client``` ouvrir git ou votre CLI prefere, et taper les commandes suivantes: ```npm i``` puis ```npm start```
 
 ### Voila!
