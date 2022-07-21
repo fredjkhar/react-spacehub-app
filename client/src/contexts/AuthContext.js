@@ -7,11 +7,8 @@ const UserContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
 
-  function signup(email, password, name) {
-    createUserWithEmailAndPassword(auth, email, password);
-    return updateProfile(auth.currentUser, {
-      displayName: name
-    });
+  function signup(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password);
   }
 
   function signout() {

@@ -13,6 +13,8 @@ import Footer from '../../components/Footer';
 import Gmail from '../../components/assets/gmail.png';
 import GitHub from '../../components/assets/github.png';
 
+import img from '../../components/assets/user.png'
+
 import { useTranslation } from "react-i18next";
 
 
@@ -24,17 +26,28 @@ const SignUp = ({setUser, changeLanguage}) => {
   const [password2, setPassword2] = useState('');
   const [error, setError] = useState('');
   const history = useHistory();
-
+  const { t } = useTranslation();
   const { signup } = UserAuth();
-
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
+    if (password !== password2) {
+      setError("Name must contain at least 3 characters");
+      return;
+    }
+
+    if (name.length < 3) {
+      setError("Passwords don't match");
+      return;
+    }
+    
     setError('');
     try {
-      await signup(email, password, name);
+      
+      await signup(email, password);
       const user = {
+        email: email,
         displayName: name,
-        photos: [{value: '../../components/assets/user.png'}]
+        photos: [{value: img}]
       }
       setUser(user);
       history.push("/")
@@ -45,7 +58,7 @@ const SignUp = ({setUser, changeLanguage}) => {
   };
 
 
-  const { t } = useTranslation();
+  
 
   const google = ()=> {
     window.open("http://localhost:5000/auth/google", "_self")
@@ -71,7 +84,7 @@ const SignUp = ({setUser, changeLanguage}) => {
               
               <li><Link to='/articles'>{t('articles')}</Link></li>
               <li><Link to='galleries'>{t('galleries')}</Link></li>
-              <li>/</li>
+              <li><Link to='/faq'>FAQ</Link></li>
               <li><Link to='signin'>{t('sign_in')}</Link></li>
             </ul>
           </Navbar.Collapse>
@@ -80,6 +93,7 @@ const SignUp = ({setUser, changeLanguage}) => {
       <div className="login container-fluid">
         <div className="wrapper">
           <div className="left">
+          <div><h3 style={{textAlign: 'center'}}>{t('sign_up')}</h3></div>
             <div className="loginButton gmail" onClick={google}>
               <img id='' src={Gmail} style={{width: '40px', height: '40px'}}></img>
               Gmail

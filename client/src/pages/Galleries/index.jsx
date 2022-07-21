@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './galleries.css'
 
 import Footer from '../../components/Footer'
@@ -10,6 +10,8 @@ import Profile from '../../components/assets/user.png';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 import { useTranslation } from "react-i18next";
+
+import {Button, TextField, Typography} from '@mui/material'
 
 import img2 from '../../components/assets/img2.jpg';
 import img8 from '../../components/assets/img8.jpg';
@@ -33,6 +35,23 @@ const Galleries = ({user, changeLanguage}) => {
   const logout = () => {
     window.open("http://localhost:5000/auth/logout", "_self");
   };
+  const [state, setState] = useState([]);
+  const [index, setIndex] = useState(0);
+  var array = state;
+  const fileSelectedHandler = event => {
+    array = state;
+    array.push({
+      selectedFile: event.target.files[0],
+      id: index
+    });
+    console.log(event.target.files[0])
+
+  }
+
+  const fileUploadHandler = () => {
+    setState(array);
+    setIndex(index + 1);
+  }
   return (
     <div>
        {user ?    (    
@@ -45,6 +64,7 @@ const Galleries = ({user, changeLanguage}) => {
                       <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
                       <li><Link to='/'>{t('home')}</Link></li>
                       <li><Link to='/articles'>{t('articles')}</Link></li>
+                      <li><Link to='/faq'>FAQ</Link></li>
                       <li>
                         <Dropdown>
                           <Dropdown.Toggle variant="dark" id="dropdown-basic">
@@ -68,10 +88,12 @@ const Galleries = ({user, changeLanguage}) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <ul className='navbar-links'>
+                  <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
                     <li><Link to='/'>{t('home')}</Link></li>
                     <li><Link to='/articles'>{t('articles')}</Link></li>
+                    <li><Link to='/faq'>FAQ</Link></li>
                     <li><Link to='/signin'>{t('sign_in')}</Link></li>
-                    <li>/</li>
+                    <li style={{color: 'white'}}>/</li>
                     <li><Link to='signup'>{t('sign_up')}</Link></li>
                   </ul>
                 </Navbar.Collapse>
@@ -80,7 +102,7 @@ const Galleries = ({user, changeLanguage}) => {
         )}
         <div className='images'>
           <div className='row'>
-          <h3 style={{textAlign: 'center', fontSize: '2.5rem', paddingBottom: '2rem'}}>Images</h3>
+          <h3 style={{textAlign: 'center', fontSize: '2.5rem', paddingBottom: '2rem'}}>{t('space_gallery')}</h3>
         <div className='gallery-img-left col-xs-12 col-md-6'>
         <img className='img-fluid' style={{marginBottom: '1rem'}} src={img14}/>
         </div>
@@ -123,9 +145,26 @@ const Galleries = ({user, changeLanguage}) => {
         <img className='img-fluid' style={{marginBottom: '1rem'}} src={img2}/>
         </div>
         <hr/>
+        {state && state.map(file => {
+          return (
+            <div key={file.id}>
+              <div className='col-xs-12 col-md-6'>
+              <img className='img-fluid' style={{marginBottom: '1rem'}} src={URL.createObjectURL(new Blob([file.selectedFile], {type: "image/jpeg"}))}/>
+              </div>
+              <hr/>
+            </div>
+          )
+        })}
         <button type="button" className="buttonBody container-fluid"><Link className='bodyLink' to='/'>{t('back_to_home')}</Link></button>
+        <h5 style={{fontSize: '1.5rem', paddingLeft: '2rem', textAlign: 'center'}}>{t('upload_image')}</h5>
+        <div className='container-fluid' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem 0'}}>
+          <input type="file" style={{fontSize: '1.3rem', border: '1px solid black'}} onChange={fileSelectedHandler}></input></div>
+          <Button style={{marginTop: '10px'}} fullWidth disabled={false} variant="contained" onClick={fileUploadHandler}>
+                Upload
+            </Button>
           </div>
         </div>
+
 
         
 

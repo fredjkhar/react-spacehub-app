@@ -13,7 +13,7 @@
   "already_have_an_account": "Vous avez déjà un compte ? ",
   "dont_have_an_account": "Vous ne disposez pas d'un compte ? ",
   "or": "OU",
-  "password": "Mot de passe",
+  "password": "Mot de passe (minimum d'elements: 6)",
   "password_confirmation": "Confirmer le mot de passe",
   "name": "Nom",
 
@@ -101,5 +101,20 @@
     "latest_articles": "Derniers articles",
 
     "space_gallery": "Galerie de l'espace",
-    "more_images": "Plus d'images"
+    "more_images": "Plus d'images",
+
+    "q1" : "Pourquoi ne puis-je pas afficher tous mes messages/posts/commentaires enregistrés ?",
+    "q2" : "Pourquoi y a-t-il des commentaires manquants dans un article ?",
+    "q3" : "Is it possible to change my username?",
+    "q4" : "Est-il possible de changer mon nom d'utilisateur ?",
+    "q5" : "How to upload an image?",
+
+    "upload_image": "Télécharger l'image",
+    "wrong": "Informations d'identification non valides. Veuillez réessayer",
+
+    "a1" : "Si vous souhaitez récupérer des entrées qui ont disparu de la page, vous pouvez essayer de modifier le tri de la page et vous pourrez peut-être extraire quelques entrées supplémentaires de cette façon. Pour les messages dans votre onglet enregistré, vous pouvez essayer de désenregistrer une partie du contenu pour extraire des entrées supplémentaires.",
+    "a2" : "Si vous trouvez un fil de discussion qui indique qu'il y a plus de commentaires que ce que vous pouvez voir dans le fil, les commentaires 'manquants' ont probablement été supprimés - par les modérateurs de ce subreddit, par le filtre anti-spam de reddit, ou par l'AutoModerator local du subreddit. Un commentaire supprimé de cette manière reste en fait dans le fil de discussion ; il est simplement caché afin que les lecteurs ne puissent pas le voir. Ainsi, reddit compte un commentaire supprimé dans le total des commentaires d'un fil de discussion, mais ne l'affiche pas.",
+    "a3" : "En général, non. Il n'est pas possible de modifier votre nom d'utilisateur après l'avoir créé. Cela inclut la modification de votre nom d'utilisateur actuel de quelque manière que ce soit, même si vous changez simplement la capitalisation de votre nom.",
+    "a4" : "Vous pouvez supprimer un compte à tout moment si vous ne souhaitez plus utiliser Reddit ou si vous avez un compte alt de trop. Si vous choisissez de supprimer un compte, sachez que vous ne pourrez jamais récupérer ou restaurer le compte et que le nom d'utilisateur ne pourra jamais être réutilisé sur un autre compte.",
+    "a5" : "Vous pouvez télécharger vos images en naviguant dans la section Galeries et en faisant défiler la page jusqu'à ce que vous voyiez l'option choisir le fichier."
 }

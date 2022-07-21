@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp'
 import Articles from './pages/Articles'
 import Galleries from './pages/Galleries'
 import OneArticle from './pages/OneArticle'
+import FAQ from './pages/FAQ'
 import { AuthContextProvider } from './contexts/AuthContext';
 import i18next from 'i18next'
 
@@ -70,6 +71,9 @@ const App = () => {
         </Route>
         <Route exact path="/article">
             <OneArticle user = {user} changeLanguage = { changeLanguage } article = {article}/>
+        </Route>
+        <Route exact path="/faq">
+            <FAQ user = {user} changeLanguage = { changeLanguage }/>
         </Route>
       </Switch>
     </Router>

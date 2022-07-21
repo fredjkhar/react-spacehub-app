@@ -48,6 +48,7 @@ const OneArticle = ({user, changeLanguage, article}) => {
                     <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
                     <li><Link to='/'>{t('home')}</Link></li>
                     <li><Link to='galleries'>{t('galleries')}</Link></li>
+                    <li><Link to='/faq'>FAQ</Link></li>
                     <li>
                       <Dropdown>
                         <Dropdown.Toggle variant="dark" id="dropdown-basic">
@@ -74,8 +75,9 @@ const OneArticle = ({user, changeLanguage, article}) => {
                   <li><Link onClick={changeLanguage}>{t('language')}</Link></li>
                   <li><Link to='/'>{t('home')}</Link></li>
                   <li><Link to='galleries'>{t('galleries')}</Link></li>
+                  <li><Link to='/faq'>FAQ</Link></li>
                   <li><Link to='/signin'>{t('sign_in')}</Link></li>
-                  <li>/</li>
+                  <li style={{color: 'white'}}>/</li>
                   <li><Link to='signup'>{t('sign_up')}</Link></li>
                 </ul>
               </Navbar.Collapse>

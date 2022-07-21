@@ -1,0 +1,8 @@
+.accordion {
+    width: 70% !important;
+    height: 100px;
+}
+
+.question {
+    font-weight: bold;
+}
