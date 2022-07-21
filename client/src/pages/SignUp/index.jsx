@@ -26,13 +26,23 @@ const SignUp = ({setUser, changeLanguage}) => {
   const [password2, setPassword2] = useState('');
   const [error, setError] = useState('');
   const history = useHistory();
-
+  const { t } = useTranslation();
   const { signup } = UserAuth();
-
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
+    if (password !== password2) {
+      setError("Name must contain at least 3 characters");
+      return;
+    }
+
+    if (name.length < 3) {
+      setError("Passwords don't match");
+      return;
+    }
+    
     setError('');
     try {
+      
       await signup(email, password);
       const user = {
         email: email,
@@ -48,7 +58,7 @@ const SignUp = ({setUser, changeLanguage}) => {
   };
 
 
-  const { t } = useTranslation();
+  
 
   const google = ()=> {
     window.open("http://localhost:5000/auth/google", "_self")

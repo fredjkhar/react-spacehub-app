@@ -92,6 +92,7 @@ const SignIn = ({setUser, changeLanguage}) => {
             <div className="or">{t('or')}</div>
           </div>
           <div className="right">
+          {error && <Alert variant="danger">{t('wrong')}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
                 <Form.Label>Email</Form.Label>

@@ -111,7 +111,12 @@
     "q4" : "How do I delete my account?",
     "q5" : "How to upload an image?",
 
+    "err2": "Name must contain at least 3 characters",
+    "err1": "Passwords don't match",
+
+
     "upload_image": "Upload image",
+    "wrong": "Invalid credentials. Please Try again",
 
     "a1" : "If you wish to retrieve entries that have dropped off the page, you can try changing the sorting of the page and you may be able to extract some additional entries that way. For posts in your saved tab, you can try unsaving some content to extract some additional entries.",
     "a2" : "If you find a thread that says there are more comments than you can see in the thread, the 'missing' comments were probably removed - by the moderators of that subreddit, by the reddit spam filter, or by the subreddit's local AutoModerator. A comment which is removed in this way actually stays in the thread; it is merely hidden so that readers can't see it. So, reddit counts a removed comment in the total comments for a thread, but doesn't display it.",
