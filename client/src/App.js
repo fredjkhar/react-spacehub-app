@@ -55,7 +55,7 @@ const App = () => {
       <Router>
       <Switch>
         <Route exact path="/">
-            <Home user = {user} changeLanguage = { changeLanguage }/>
+            <Home user = {user} changeLanguage = { changeLanguage } setArticles = { setArticles }/>
         </Route>
         <Route exact path="/signIn">
             <SignIn setUser = {setUser} changeLanguage = { changeLanguage }/>

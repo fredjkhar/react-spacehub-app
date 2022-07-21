@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 
 import { Link } from 'react-router-dom';
 
-const Body = ({changeLanguage}) => {
+const Body = ({changeLanguage, setArticles}) => {
   const { t } = useTranslation();
 
   return (
@@ -27,7 +27,7 @@ const Body = ({changeLanguage}) => {
         <div className='topic-text col-xs-12 col-lg-6' >
             <div className='text' style={{fontSize: '1.3rem'}}>
             {t('article_1_text_1')}&nbsp;
-            <a href='#'>{t('read_more')}</a>
+            <li><Link to='/articles' onClick={() => {setArticles(1)}}>{t('read_more')}</Link></li>
             </div>
         </div>
         <hr/>
@@ -38,7 +38,7 @@ const Body = ({changeLanguage}) => {
         <div className='topic-text col-xs-12 col-lg-6'>
             <div className='text' style={{fontSize: '1.3rem'}}>
             {t('article_2_text_1')}&nbsp;
-            <a href='#'>{t('read_more')}</a>
+            <li><Link to='/articles' onClick={() => {setArticles(2)}}>{t('read_more')}</Link></li>
             </div>
         </div>
         <hr/>
@@ -49,7 +49,7 @@ const Body = ({changeLanguage}) => {
         <div className='topic-text col-xs-12 col-lg-6'>
             <div className='text' style={{fontSize: '1.3rem'}}>
             {t('article_3_text_1')}&nbsp;
-            <a href='#'>{t('read_more')}</a>
+            <li><Link to='/articles' onClick={() => {setArticles(3)}}>{t('read_more')}</Link></li>
             </div>
         </div>
         <hr/>

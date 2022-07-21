@@ -31,12 +31,12 @@ const SignUp = ({setUser, changeLanguage}) => {
   async function handleSubmit(e) {
     e.preventDefault();
     if (password !== password2) {
-      setError("Name must contain at least 3 characters");
+      setError("Passwords don't match");
       return;
     }
 
     if (name.length < 3) {
-      setError("Passwords don't match");
+      setError("Name must contain at least 3 characters");
       return;
     }
     
